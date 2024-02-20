@@ -1,0 +1,26 @@
+name: Daily Data Fetch
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at 00:00 UTC every day.
+
+jobs:
+  fetch_data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.12
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests # Replace with your actual dependencies, if different
+        
+    - name: Run fetch_data.py
+      run: python fetch_data.py
