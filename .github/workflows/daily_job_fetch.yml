@@ -30,4 +30,4 @@ jobs:
           # Optional: Apply Django migrations
           python manage.py migrate
           # Now run your script
-          python scrapy.py
+          python scrapy1.py
