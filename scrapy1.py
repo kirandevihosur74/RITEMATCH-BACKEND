@@ -3,7 +3,7 @@ import django
 import pandas as pd
 from datetime import datetime
 
-from python_jobspy import scrape_jobs
+from jobspy import scrape_jobs
 
 # Set Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
