@@ -33,7 +33,7 @@ def import_job_data(data):
 
 # Scrape job postings
 jobs = scrape_jobs(
-    site_name=["indeed", "linkedin", "zip_recruiter", "glassdoor"],
+    site_name=["indeed", "linkedin", "zip_recruiter"],
     search_term="software engineer",
     location="Dallas, TX",
     results_wanted=20,
