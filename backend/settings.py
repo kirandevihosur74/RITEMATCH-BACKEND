@@ -59,6 +59,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'backend.urls'
 
+CORS_ALLOWED_ORIGINS = [
+    "https://ritematch-945d1.web.app",
+]
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
