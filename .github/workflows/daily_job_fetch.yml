@@ -1,0 +1,33 @@
+name: Fetch and Store Job Postings Daily
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day.
+
+jobs:
+  fetch_and_store_jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v3
+        with:
+          python-version: 3.12
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install django pandas requests python_jobspy
+          pip install -r requirements.txt
+
+      - name: Run the script
+        env:
+          DJANGO_SETTINGS_MODULE: backend.settings
+          # Set additional environment variables here
+        run: |
+          # Optional: Apply Django migrations
+          python manage.py migrate
+          # Now run your script
+          python scrapy1.py
